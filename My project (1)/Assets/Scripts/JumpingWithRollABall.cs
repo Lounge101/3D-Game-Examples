@@ -5,17 +5,13 @@ using UnityEngine;
 public class JumpingWithRollABall : MonoBehaviour
 {
     public float JumpForce = 10f;
-
     public float GravityModifier = 1f;
-
     public bool IsOnGround = true;
-
+    public float OutOfBounds = -10f;
     public float Speed = 10f;
-    
     private float _horizontalInput;
-
     private float _forwardInput;
-
+    private Vector3 _startingPosition;
     private Rigidbody _playerRigidbody;
 
     // Start is called before the first frame update
@@ -23,6 +19,7 @@ public class JumpingWithRollABall : MonoBehaviour
     {
         _playerRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
+        _startingPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -35,6 +32,11 @@ public class JumpingWithRollABall : MonoBehaviour
         {
             _playerRigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             IsOnGround = false;
+        }
+
+        if(transform.position.y < OutOfBounds)
+        {
+            transform.position = _startingPosition;
         }
     }
 
@@ -51,6 +53,14 @@ public class JumpingWithRollABall : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             IsOnGround = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Checkpoint"))
+        {
+            _startingPosition = other.gameObject.transform.position;
         }
     }
 }
