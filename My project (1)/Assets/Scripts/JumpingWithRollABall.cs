@@ -6,7 +6,7 @@ using TMPro;
 
 public class JumpingWithRollABall : MonoBehaviour
 {
-    public TextMeshPro scoreText;
+    public TextMeshProUGUI scoreText;
     public int score = 0;
     public float JumpForce = 10f;
     public float GravityModifier = 1f;
