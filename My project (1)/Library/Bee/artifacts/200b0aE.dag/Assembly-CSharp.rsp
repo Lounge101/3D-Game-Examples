@@ -354,6 +354,7 @@
 "Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/JohnLemon.cs"
 "Assets/Scripts/JumpingWithRollABall.cs"
+"Assets/Scripts/Player Movement.cs"
 "Assets/Scripts/Prototype1Movement.cs"
 "Assets/Scripts/RollerBall.cs"
 "Assets/Scripts/Spinners.cs"
