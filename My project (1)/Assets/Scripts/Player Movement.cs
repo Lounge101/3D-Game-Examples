@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float turnSpeed = 20f;
+public float turnSpeed = 20f;
     public float moveSpeed = 1f;
     public float jumpForce = 3f;
     public bool IsOnGround = true;
@@ -53,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
         {
             IsOnGround = true;
         }
+    }
+
+    public bool IsPlayerOnGround()
+    {
+        return IsOnGround;
     }
 
 }
